@@ -41,6 +41,13 @@ public class Laser : MonoBehaviour {
             ShootBeam(hit.point - dir * 0.001f, newDir, maxDistance - hit.distance);
         }
         // TODO: check for laser hitting destructible things, etc.?
+        if (go.tag == "Destructible") {
+            Debug.Log("Some damage caused?");
+            IDamageable damageable = go.GetComponentInParent<IDamageable>();
+            if (damageable != null) {
+                damageable.DamageIt(10*Time.deltaTime);
+            }
+        }
     }
 
     void CreateBeamSegment(Vector2 start, Vector2 end) {

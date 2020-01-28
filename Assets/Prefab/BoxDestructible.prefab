@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2988227667101388703}
   m_Layer: 0
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2988227668421994474}
-  - component: {fileID: 7167022821508696130}
+  - component: {fileID: 3853596751294979708}
   m_Layer: 0
   m_Name: BoxDestructible
   m_TagString: Untagged
@@ -140,7 +140,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7167022821508696130
+--- !u!114 &3853596751294979708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2988227668421994475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64b0e182d292364dbae520951cd1906, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c042a8adf703ed4ca1535fe9a9cdd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxHealth: 100
