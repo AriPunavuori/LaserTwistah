@@ -43,13 +43,9 @@ public class WallManager : MonoBehaviour
             srRight.tag = "Untagged";
         }
 
-        Debug.Log("Top: " + srTop.tag);
-        Debug.Log("Bottom: " + srBottom.tag);
-        Debug.Log("Left: " + srLeft.tag);
-        Debug.Log("Right: " + srRight.tag);
-    }
-
-    void Update() {
-        
+        //Debug.Log("Top: " + srTop.tag);
+        //Debug.Log("Bottom: " + srBottom.tag);
+        //Debug.Log("Left: " + srLeft.tag);
+        //Debug.Log("Right: " + srRight.tag);
     }
 }

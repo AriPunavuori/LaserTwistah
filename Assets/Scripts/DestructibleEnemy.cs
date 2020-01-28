@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructibleBox : MonoBehaviour, IDamageable {
+public class DestructibleEnemy : MonoBehaviour, IDamageable {
 
-    public float boxHealth = 100f;
+    public float enemyHealth = 100f;
+    public float enemyMinHealth = 0f;
+    public float enemyMaxHealth = 100f;
 
     //public AudioSource audioBoxVanishes;
     //public AudioSource audioBoxTakesHits;
@@ -19,29 +21,27 @@ public class DestructibleBox : MonoBehaviour, IDamageable {
         } else {
             ;
         }
-
         isBoxDestroyed(boxHealth);
     }
     */
 
     public void DamageIt(float damageAmount) {
         //Debug.Log("You damaged it.");
-        boxHealth -= damageAmount;
+        // Enemy get's some damage.
+        enemyHealth -= damageAmount;
+        GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (enemyMaxHealth - enemyHealth) / enemyMaxHealth);
         //audioBoxTakesHits.Play();
-        isBoxDestroyed(boxHealth);
+        isEnemyDestroyed(enemyHealth);
     }
 
-    //void OnCollisionEnter(Collision collision) {
-    //    HitSomething(collision.gameObject);
-    //}
-
-    void isBoxDestroyed(float health) {
-        if (health <= 0) {
+    void isEnemyDestroyed(float health) {
+        // If health goes too low we'll remove enemy.
+        if (health <= enemyMinHealth) {
             //audioBoxVanishes.Play();
             Destroy(gameObject, 0.5f);
         }
-        if (health >= 100) {
-            health = 100f;
-        }
+        //if (health >= enemyMaxHealth) {
+        //    health = enemyMaxHealth;
+        //}
     }
 }

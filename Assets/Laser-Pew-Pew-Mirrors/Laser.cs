@@ -10,6 +10,8 @@ public class Laser : MonoBehaviour {
 
     List<Vector3> beamPoints;
 
+    public float enemyDamageRate = 20f;
+
     void Awake() {
         beamPoints = new List<Vector3>();
         beamStart = transform.Find("BeamStart");
@@ -39,15 +41,22 @@ public class Laser : MonoBehaviour {
         if (go.tag == "Mirror") {
             var newDir = Vector2.Reflect(dir, hit.normal);
             ShootBeam(hit.point - dir * 0.001f, newDir, maxDistance - hit.distance);
+        
         }
+
         // TODO: check for laser hitting destructible things, etc.?
-        if (go.tag == "Destructible") {
-            Debug.Log("Some damage caused?");
+        
+        // If enemy can be desctructed it must have the "DestructibleEnemy" script.
+        // And... if enemy can heal itself it must additionally have the "TryToHealEnemy" script.
+        
+        // No need to check this below as "DestructibleEnemy" script has the "damageable" feature.
+        //if (go.tag == "Destructible") {
+            //Debug.Log("Some damage caused?");
             IDamageable damageable = go.GetComponentInParent<IDamageable>();
             if (damageable != null) {
-                damageable.DamageIt(10*Time.deltaTime);
+                damageable.DamageIt(enemyDamageRate*Time.deltaTime);
             }
-        }
+        //}
     }
 
     void CreateBeamSegment(Vector2 start, Vector2 end) {
