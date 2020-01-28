@@ -10,7 +10,7 @@ public class Laser : MonoBehaviour {
 
     List<Vector3> beamPoints;
 
-    public float enemyDamageRate = 20f;
+    public float enemyDamageRate;
 
     void Awake() {
         beamPoints = new List<Vector3>();
@@ -30,12 +30,17 @@ public class Laser : MonoBehaviour {
 
     void ShootBeam(Vector2 origin, Vector2 dir, float maxDistance) {
         var hit = Physics2D.Raycast(origin, dir, maxDistance);
+        
+        // Check if starts inside object.
+        if(hit.distance <= 0.001f) {
+            return;
+        }
 
         if (hit.collider == null) {
             CreateBeamSegment(origin, origin + dir * maxDistance);
             return;
         }
-
+        
         var go = hit.collider.gameObject;
         CreateBeamSegment(origin, hit.point);
         if (go.tag == "Mirror") {

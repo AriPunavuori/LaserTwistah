@@ -7,6 +7,7 @@ public class DemoEffect : MonoBehaviour {
         startPosition = transform.position;
     }
 	void Update () {
-        transform.position = startPosition + Vector3.right * Mathf.Sin(Time.time * 2.0f) * 2.0f;
+        //transform.position = startPosition + Vector3.right * Mathf.Sin(Time.time * 2.0f) * 2.0f;
+        transform.position = startPosition + Vector3.right * Mathf.Sin(Time.time * 0.5f) * 2.0f;
 	}
 }

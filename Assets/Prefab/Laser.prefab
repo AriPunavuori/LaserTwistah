@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0687f5bd08f7fb47a6cb9da4e54db26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamReach: 7
+  beamReach: 20
+  enemyDamageRate: 10
 --- !u!114 &4064120819799675431
 MonoBehaviour:
   m_ObjectHideFlags: 0

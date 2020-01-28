@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TryToHealEnemy : MonoBehaviour
 {
-    public float enemyHealingRate = 1.0f;
+    public float enemyHealingRate;
 
     void Update() {
         //Debug.Log("Trying to heal...");
