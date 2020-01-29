@@ -32,7 +32,7 @@ public class Laser : MonoBehaviour {
         var hit = Physics2D.Raycast(origin, dir, maxDistance);
         
         // Check if starts inside object.
-        if(hit.distance <= 0.001f) {
+        if(hit.distance <= 0.1f) {
             return;
         }
 
