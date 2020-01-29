@@ -121,49 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &268568502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5700454692058461526, guid: 170daefb1ee84ef45a25ff4f27c322b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7378097321914837738}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &268568503
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268568502}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 3.8754077, y: 6.3917994}
-      - {x: 2.4549131, y: 8.692063}
-      - {x: -0.35081226, y: 9.271671}
-      - {x: -3.1327658, y: 8.219892}
-      - {x: -4.230047, y: 5.625424}
-      - {x: -3.7445223, y: 1.2538829}
-      - {x: -5.594749, y: -3.057729}
-      - {x: -3.5534506, y: -6.3984227}
-      - {x: -0.3362528, y: -7.6834764}
-      - {x: 3.0395823, y: -7.1415324}
-      - {x: 5.4447646, y: -3.2067645}
-      - {x: 5.1932297, y: 1.2927102}
 --- !u!1 &374668394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,31 +983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BadOrange
       objectReference: {fileID: 0}
-    - target: {fileID: 84640200790369930, guid: 688c358beb96a1745a2964678e323bab,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 84640200790369930, guid: 688c358beb96a1745a2964678e323bab,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 84640200790369930, guid: 688c358beb96a1745a2964678e323bab,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 84640200790369930, guid: 688c358beb96a1745a2964678e323bab,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84640200790369930, guid: 688c358beb96a1745a2964678e323bab,
-        type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 688c358beb96a1745a2964678e323bab, type: 3}
 --- !u!1001 &4322235703209520677
@@ -1119,11 +1051,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoodOrange
-      objectReference: {fileID: 0}
-    - target: {fileID: 7090334325862457425, guid: 1e26729778932c7429551ab52da4978f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e26729778932c7429551ab52da4978f, type: 3}
@@ -1194,11 +1121,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4959659935494202974, guid: 0816ad936d37883459c7d6e72537758a,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0816ad936d37883459c7d6e72537758a, type: 3}
 --- !u!1001 &5084594133374729660
@@ -1208,11 +1130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5084594133374729662, guid: c78d10613a1e8884fa034b4368fb0cc7,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5491656994094491036, guid: c78d10613a1e8884fa034b4368fb0cc7,
         type: 3}
       propertyPath: m_Name
@@ -1275,25 +1192,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78d10613a1e8884fa034b4368fb0cc7, type: 3}
---- !u!1 &6457678046216982132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7090334325862457425, guid: 1e26729778932c7429551ab52da4978f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4322235703209520677}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6457678046216982133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6457678046216982132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dacfe5e3a21b28747add2fadb3698756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  draggable: 1
 --- !u!1001 &7378097321914837738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1305,11 +1203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoodPotato
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700454692058461526, guid: 170daefb1ee84ef45a25ff4f27c322b3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Mirror
       objectReference: {fileID: 0}
     - target: {fileID: 5700454692058461527, guid: 170daefb1ee84ef45a25ff4f27c322b3,
         type: 3}
@@ -1366,16 +1259,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5700454693419982119, guid: 170daefb1ee84ef45a25ff4f27c322b3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378097321914837741, guid: 170daefb1ee84ef45a25ff4f27c322b3,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8854572844389392997, guid: 170daefb1ee84ef45a25ff4f27c322b3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170daefb1ee84ef45a25ff4f27c322b3, type: 3}
