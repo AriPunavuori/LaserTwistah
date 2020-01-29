@@ -304,6 +304,8 @@ GameObject:
   - component: {fileID: 3412790182371816149}
   - component: {fileID: 442755386614918511}
   - component: {fileID: 442755386614918510}
+  - component: {fileID: 4389691881684280302}
+  - component: {fileID: 3970670418028387322}
   m_Layer: 0
   m_Name: BadCandy
   m_TagString: Mirror
@@ -346,7 +348,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &442755386614918510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,3 +362,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggable: 1
+--- !u!114 &4389691881684280302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412790182371816148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c042a8adf703ed4ca1535fe9a9cdd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 100
+  enemyMinHealth: 0
+  enemyMaxHealth: 100
+--- !u!114 &3970670418028387322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412790182371816148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674b30ece4cc37f43852c48ad82b3d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealingRate: 1
