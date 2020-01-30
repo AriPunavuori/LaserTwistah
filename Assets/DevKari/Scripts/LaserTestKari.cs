@@ -10,7 +10,7 @@ public class LaserTestKari : MonoBehaviour {
 
     List<Vector3> beamPoints;
 
-    public float enemyDamageRate;
+    public float laserPower;
 
     void Awake() {
         beamPoints = new List<Vector3>();
@@ -37,27 +37,41 @@ public class LaserTestKari : MonoBehaviour {
             return;
         }
 
-        // Vectors for additional rays on both sides of original ray
-        var right = (Vector2)Vector3.Cross(dir, Vector3.forward).normalized;
-        Vector2 orig1 = origin - right * 0.5f;
-        Vector2 orig2 = origin + right * 0.5f; 
-
-        // Additional hits on both sides of original ray
-        var hit1 = Physics2D.Raycast(orig1, dir, maxDistance);
-        var hit2 = Physics2D.Raycast(orig2, dir, maxDistance);
-
-        // Calculate averages vor vectors;
-
-        var mid = (hit.normal + hit1.normal + hit2.normal) / 3;
-        mid = mid.normalized;
-
-        Debug.Log(mid);
 
         if (hit.collider == null) {
             CreateBeamSegment(origin, origin + dir * maxDistance);
             return;
         }
-        
+
+        // Vectors for additional rays on both sides of original ray
+        var right = (Vector2)Vector3.Cross(dir, Vector3.forward).normalized;
+        Vector2 orig1 = origin - right * 0.5f;
+        Vector2 orig2 = origin + right * 0.5f;
+
+        // Additional hits on both sides of original ray
+        var hit1 = Physics2D.Raycast(orig1, dir, maxDistance);
+        var hit2 = Physics2D.Raycast(orig2, dir, maxDistance);
+
+        // Calculate averages for vectors;
+        var mid = hit.normal;
+        int hits = 1;
+        Debug.Log("hit.normal x, y : " + hit.normal.x + " " + hit.normal.y);
+        // for every valid hit: mid += hit.normal; hits++;
+        if (hit1.collider != null) {
+            hits++;
+            mid += hit1.normal;
+        }
+        if (hit2.collider != null) {
+            hits++;
+            mid += hit2.normal;
+        }
+
+        //var mid = (hit.normal + hit1.normal + hit2.normal) / 3;
+        mid /= hits;
+        mid = mid.normalized;
+
+        Debug.Log(mid);
+
         var go = hit.collider.gameObject;
         CreateBeamSegment(origin, hit.point);
         if (go.tag == "Mirror") {
@@ -76,7 +90,7 @@ public class LaserTestKari : MonoBehaviour {
             //Debug.Log("Some damage caused?");
             IDamageable damageable = go.GetComponentInParent<IDamageable>();
             if (damageable != null) {
-                damageable.DamageIt(enemyDamageRate*Time.deltaTime);
+                damageable.DamageIt(laserPower);
             }
         //}
     }

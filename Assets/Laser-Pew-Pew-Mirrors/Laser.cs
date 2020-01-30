@@ -10,7 +10,7 @@ public class Laser : MonoBehaviour {
 
     List<Vector3> beamPoints;
 
-    public float enemyDamageRate;
+    public float laserPower;
 
     void Awake() {
         beamPoints = new List<Vector3>();
@@ -59,7 +59,7 @@ public class Laser : MonoBehaviour {
             //Debug.Log("Some damage caused?");
             IDamageable damageable = go.GetComponentInParent<IDamageable>();
             if (damageable != null) {
-                damageable.DamageIt(enemyDamageRate*Time.deltaTime);
+                damageable.DamageIt(laserPower);
             }
         //}
     }
