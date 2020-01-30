@@ -16,7 +16,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     public void DamageIt(float damageAmount) {
         //Debug.Log("You damaged it.");
         // Enemy get's some damage.
-        Health -= damageAmount;
+        Health -= damageAmount*Time.deltaTime;
         GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
         //audioTakesHits.Play();
         isEnemyDestroyed(Health);
