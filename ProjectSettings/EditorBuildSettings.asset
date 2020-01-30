@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CanvasDevScene.unity
+    guid: 0069ea99b38b8de4690bd401bbcada8d
+  - enabled: 1
     path: Assets/Scenes/AriDevScene.unity
     guid: f87b215c7c219ff4980ecf9f50d81967
   - enabled: 0
