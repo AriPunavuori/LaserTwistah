@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/AriDevScene.unity
     guid: f87b215c7c219ff4980ecf9f50d81967
   - enabled: 0
-    path: Assets/Scenes/KariDevScene.unity
+    path: Assets/DevKari/Scenes/KariDevScene.unity
     guid: a2517d1e4490a264cb7d7d6157ceb9d7
   m_configObjects: {}
