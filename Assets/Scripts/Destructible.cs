@@ -8,6 +8,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     public float MinHealth = 0f;
     public float MaxHealth = 100f;
     public bool Healable;
+    bool isTakingDamage;
     public float HealingAmount; // per 1 second
 
     //public AudioSource audioVanishes;
@@ -20,6 +21,7 @@ public class Destructible : MonoBehaviour, IDamageable {
         GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
         //audioTakesHits.Play();
         isEnemyDestroyed(Health);
+        isTakingDamage = true;
     }
 
     void isEnemyDestroyed(float health) {
@@ -36,12 +38,12 @@ public class Destructible : MonoBehaviour, IDamageable {
     void Update() {
         //Debug.Log("Trying to heal...");
         // We'll try to heal target a bit in every frame.
-        if (Healable) {
+        if (Healable  && !isTakingDamage) {
             if (Health < MaxHealth) {
                 Health += (HealingAmount * Time.deltaTime);
                 GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
             }
         }
+        isTakingDamage = false;
     }
-
 }
