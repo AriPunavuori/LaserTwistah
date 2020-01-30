@@ -207,12 +207,12 @@ PrefabInstance:
     - target: {fileID: 4064120819799675432, guid: 37bb36ff49889b6478a4237f5ed1968e,
         type: 3}
       propertyPath: extendSpeed
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4064120819799675432, guid: 37bb36ff49889b6478a4237f5ed1968e,
         type: 3}
       propertyPath: laserPower
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4064120819799675432, guid: 37bb36ff49889b6478a4237f5ed1968e,
         type: 3}
@@ -845,6 +845,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4959659935494202974, guid: 0816ad936d37883459c7d6e72537758a,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0816ad936d37883459c7d6e72537758a, type: 3}
 --- !u!1 &758893620
@@ -1063,6 +1068,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7378097321914837741, guid: 170daefb1ee84ef45a25ff4f27c322b3,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170daefb1ee84ef45a25ff4f27c322b3, type: 3}
 --- !u!1001 &1109633589
@@ -1080,12 +1090,12 @@ PrefabInstance:
     - target: {fileID: 7090334325862457424, guid: 1e26729778932c7429551ab52da4978f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.59
+      value: -5.83
       objectReference: {fileID: 0}
     - target: {fileID: 7090334325862457424, guid: 1e26729778932c7429551ab52da4978f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 7090334325862457424, guid: 1e26729778932c7429551ab52da4978f,
         type: 3}
@@ -1141,6 +1151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176469562833263180, guid: 1e26729778932c7429551ab52da4978f,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e26729778932c7429551ab52da4978f, type: 3}
@@ -1488,6 +1503,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5084594133374729662, guid: c78d10613a1e8884fa034b4368fb0cc7,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5491656994094491036, guid: c78d10613a1e8884fa034b4368fb0cc7,
         type: 3}
       propertyPath: m_Name
