@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Vectrosity;
+//using Vectrosity;
 
 public class LaserTestKari : MonoBehaviour {
     public float beamReach;
     Transform beamStart;
-    VectorLine laserLine;
+    //VectorLine laserLine;
 
     List<Vector3> beamPoints;
 
@@ -15,7 +15,7 @@ public class LaserTestKari : MonoBehaviour {
     void Awake() {
         beamPoints = new List<Vector3>();
         beamStart = transform.Find("BeamStart");
-        laserLine = new VectorLine("LaserLine", beamPoints, 5.0f, LineType.Continuous, Joins.Fill);
+        //laserLine = new VectorLine("LaserLine", beamPoints, 5.0f, LineType.Continuous, Joins.Fill);
 	}
 	
 	void Update () {
@@ -102,8 +102,8 @@ public class LaserTestKari : MonoBehaviour {
     }
 
     void VisualizeBeam() {
-        laserLine.color = Color.red;
-        laserLine.Draw();
+        //laserLine.color = Color.red;
+        //laserLine.Draw();
         for (int i=0; i<beamPoints.Count-1; i++) {
             Debug.DrawLine(beamPoints[i], beamPoints[i + 1]);
         }
