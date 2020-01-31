@@ -44,9 +44,9 @@ public class LaserTestKari : MonoBehaviour {
         }
 
         // Vectors for additional rays on both sides of original ray
-        var right = (Vector2)Vector3.Cross(dir, Vector3.forward).normalized;
-        Vector2 orig1 = origin - right * 0.5f;
-        Vector2 orig2 = origin + right * 0.5f;
+        var side = (Vector2)Vector3.Cross(dir, Vector3.forward).normalized;
+        Vector2 orig1 = origin - side * 0.5f;
+        Vector2 orig2 = origin + side * 0.5f;
 
         // Additional hits on both sides of original ray
         var hit1 = Physics2D.Raycast(orig1, dir, maxDistance);
