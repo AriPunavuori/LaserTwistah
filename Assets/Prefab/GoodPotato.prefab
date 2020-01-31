@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7378097321914837741}
   - component: {fileID: 7378097321914837740}
   - component: {fileID: 763163403444911623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GoodPotato
   m_TagString: Mirror
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5700454693419982116}
   - component: {fileID: 5700454693419982117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

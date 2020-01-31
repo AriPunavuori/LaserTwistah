@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5084594133374729662}
   - component: {fileID: 5084594133374729663}
   - component: {fileID: 1482411465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GoodWatermelon
   m_TagString: Mirror
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5491656994887650798}
   - component: {fileID: 5491656994887650799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

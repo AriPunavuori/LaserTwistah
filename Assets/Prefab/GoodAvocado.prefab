@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557625121873870368}
   - component: {fileID: 4557625121873870369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4959659935494202974}
   - component: {fileID: 4959659935494202973}
   - component: {fileID: 7825767028481972910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GoodAvocado
   m_TagString: Mirror
   m_Icon: {fileID: 0}

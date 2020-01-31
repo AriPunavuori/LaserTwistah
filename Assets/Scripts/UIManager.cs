@@ -5,20 +5,30 @@ using TMPro;
 
 public class UIManager : MonoBehaviour{
     Camera cam;
-    public TextMeshProUGUI UIText;
-    public TextMeshProUGUI UIText2;
+    TextMeshProUGUI UIText1;
+    TextMeshProUGUI UIText2;
     public GameObject circle;
     public float touchRadius = .5f;
+    float textTimer;
+    float textTime = 5f;
     float speed = .25f;
     Dictionary<int, Rigidbody2D> drags = new Dictionary<int, Rigidbody2D>();
     Dictionary<int, Vector2[]> touchVel = new Dictionary<int, Vector2[]>();
 
-    private void Start() {
+    private void Awake() {
         cam = Camera.main;
         Application.targetFrameRate = 60;
+        UIText1 = GameObject.Find("UIText1").GetComponent<TextMeshProUGUI>();
+        UIText2 = GameObject.Find("UIText2").GetComponent<TextMeshProUGUI>();
     }
 
     void Update() {
+        textTimer -= Time.deltaTime;
+        if(textTimer < 0) {
+            SetUIText("");
+            textTimer = Mathf.Infinity;
+        }
+
         // Loop through touches
         for(int i = 0; i < Input.touchCount; i++) {
             var t = Input.touches[i];
@@ -55,5 +65,10 @@ public class UIManager : MonoBehaviour{
                 ar[0] = t.deltaPosition;
             }
         }
+    }
+
+    public void SetUIText(string t) {
+        UIText2.text = t;
+        textTimer = textTime;
     }
 }

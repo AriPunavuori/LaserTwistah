@@ -181,6 +181,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 3483495983669362460, guid: 8d52175ebf5c901419fc0575b973c494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3483495985353346237, guid: 8d52175ebf5c901419fc0575b973c494,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,6 +372,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 1880153417250593206, guid: 869b36d8d4fe0e640bfb69c9224ac62d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869b36d8d4fe0e640bfb69c9224ac62d, type: 3}
 --- !u!4 &2560999142833274922 stripped
@@ -451,6 +461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Mirror
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992628886728204498, guid: 9edcbcc5f72eabe48b45d116fe751d42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8992628886728204500, guid: 9edcbcc5f72eabe48b45d116fe751d42,
         type: 3}
@@ -543,6 +558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Mirror
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138343139030946567, guid: de3132c2b9ebc324a830dc231d9fc477,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5138343139283841288, guid: de3132c2b9ebc324a830dc231d9fc477,
         type: 3}
