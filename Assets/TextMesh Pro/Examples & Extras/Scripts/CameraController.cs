@@ -15,12 +15,12 @@ namespace TMPro.Examples
         public Transform CameraTarget;
 
         public float FollowDistance = 30.0f;
-        public float MaxFollowDistance = 100.0f;
+        public float MaxFollowDistance = 20.0f;
         public float MinFollowDistance = 2.0f;
 
         public float ElevationAngle = 30.0f;
-        public float MaxElevationAngle = 85.0f;
-        public float MinElevationAngle = 0f;
+        public float MaxElevationAngle = 90.0f;
+        public float MinElevationAngle = 30f;
 
         public float OrbitalAngle = 0f;
 
@@ -79,7 +79,7 @@ namespace TMPro.Examples
         // Update is called once per frame
         void LateUpdate()
         {
-            GetPlayerInput();
+            //GetPlayerInput();
 
 
             // Check if we still have a valid target
@@ -177,7 +177,7 @@ namespace TMPro.Examples
                     // Handle elevation changes
                     if (deltaPosition.y > 0.01f || deltaPosition.y < -0.01f)
                     {
-                        ElevationAngle -= deltaPosition.y * 0.1f;
+                        ElevationAngle -= deltaPosition.y * 0.05f; //was 0.1f
                         // Limit Elevation angle between min & max values.
                         ElevationAngle = Mathf.Clamp(ElevationAngle, MinElevationAngle, MaxElevationAngle);
                     }
@@ -187,10 +187,10 @@ namespace TMPro.Examples
                     if (deltaPosition.x > 0.01f || deltaPosition.x < -0.01f)
                     {
                         OrbitalAngle += deltaPosition.x * 0.1f;
-                        if (OrbitalAngle > 360)
-                            OrbitalAngle -= 360;
+                        if (OrbitalAngle > 80)
+                            OrbitalAngle -= 80;
                         if (OrbitalAngle < 0)
-                            OrbitalAngle += 360;
+                            OrbitalAngle += 80;
                     }
 
                 }
@@ -254,28 +254,28 @@ namespace TMPro.Examples
             }
 
             // Check Pinching to Zoom in - out on Mobile device
-            if (touchCount == 2)
-            {
-                Touch touch0 = Input.GetTouch(0);
-                Touch touch1 = Input.GetTouch(1);
+            //if (touchCount == 2)
+            //{
+            //    Touch touch0 = Input.GetTouch(0);
+            //    Touch touch1 = Input.GetTouch(1);
 
-                Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
-                Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+            //    Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
+            //    Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
 
-                float prevTouchDelta = (touch0PrevPos - touch1PrevPos).magnitude;
-                float touchDelta = (touch0.position - touch1.position).magnitude;
+            //    float prevTouchDelta = (touch0PrevPos - touch1PrevPos).magnitude;
+            //    float touchDelta = (touch0.position - touch1.position).magnitude;
 
-                float zoomDelta = prevTouchDelta - touchDelta;
+            //    float zoomDelta = prevTouchDelta - touchDelta;
 
-                if (zoomDelta > 0.01f || zoomDelta < -0.01f)
-                {
-                    FollowDistance += zoomDelta * 0.25f;
-                    // Limit FollowDistance between min & max values.
-                    FollowDistance = Mathf.Clamp(FollowDistance, MinFollowDistance, MaxFollowDistance);
-                }
+            //    if (zoomDelta > 0.01f || zoomDelta < -0.01f)
+            //    {
+            //        FollowDistance += zoomDelta * 0.25f;
+            //        // Limit FollowDistance between min & max values.
+            //        FollowDistance = Mathf.Clamp(FollowDistance, MinFollowDistance, MaxFollowDistance);
+            //    }
 
 
-            }
+            //}
 
             // Check MouseWheel to Zoom in-out
             if (mouseWheel < -0.01f || mouseWheel > 0.01f)
