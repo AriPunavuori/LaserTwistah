@@ -19,23 +19,35 @@ public class GameManager : MonoBehaviour{
             print("Game Over");
             return;
         }
-
         um.SetUIText("Level " + (level + 1) + " Complete");
-        print("Level Complete");
+
         Invoke("SetLevel", 2f);
     }
 
     public void SetLevel() {
         level++;
         um.SetUIText("Level " + (level + 1));
+        HideLevel();
+        Invoke("DisplayLevel", 2f);
+    }
+
+    void DisplayLevel() {
         for(int i = 0; i < levels.Count; i++) {
-            if (i == level) {
+            if(i == level) {
                 levels[i].gameObject.SetActive(true);
             } else {
                 levels[i].gameObject.SetActive(false);
             }
         }
     }
+
+    void HideLevel() {
+        for(int i = 0; i < levels.Count; i++) {
+            levels[i].gameObject.SetActive(false);
+        }
+    }
+
+    
     void GameOver() {
         SceneManager.LoadScene(0);
     }
