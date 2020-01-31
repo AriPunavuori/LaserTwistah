@@ -1361,6 +1361,26 @@ PrefabInstance:
       propertyPath: ElevationAngle
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5553425617459888283, guid: 8ddf7c7ca8adca14cb882ae81ee16b55,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553425617459888283, guid: 8ddf7c7ca8adca14cb882ae81ee16b55,
+        type: 3}
+      propertyPath: MinFollowDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553425617459888283, guid: 8ddf7c7ca8adca14cb882ae81ee16b55,
+        type: 3}
+      propertyPath: MaxFollowDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553425617459888283, guid: 8ddf7c7ca8adca14cb882ae81ee16b55,
+        type: 3}
+      propertyPath: FollowDistance
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ddf7c7ca8adca14cb882ae81ee16b55, type: 3}
 --- !u!20 &1839725857 stripped
