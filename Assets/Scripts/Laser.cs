@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Vectrosity;
 
 public class Laser : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class Laser : MonoBehaviour
     float currentMaxDistance = 1f;
     public float extendSpeed;
     Transform beamStart;
-    VectorLine laserLine;
+    LineRenderer laserLine;
 
     List<float> beamDistances;
     List<float> previousBeamDistances;
@@ -22,7 +21,7 @@ public class Laser : MonoBehaviour
     void Awake() {
         beamPoints = new List<Vector3>();
         beamStart = transform.Find("BeamStart");
-        laserLine = new VectorLine("LaserLine", beamPoints, 5.0f, LineType.Continuous, Joins.Fill);
+        laserLine = GetComponent<LineRenderer>();
     }
 
     void Update() {
@@ -30,7 +29,7 @@ public class Laser : MonoBehaviour
         currentMaxDistance = Mathf.Min(currentMaxDistance, maxDistanceLimit);
         StartBeam();
         VisualizeBeam();
-        CompareBeams();
+        SetPreviousData();
     }
 
     void StartBeam() {
@@ -96,10 +95,12 @@ public class Laser : MonoBehaviour
     }
 
     void VisualizeBeam() {
-        laserLine.Draw();
         for(int i = 0; i < beamPoints.Count - 1; i++) {
             Debug.DrawLine(beamPoints[i], beamPoints[i + 1]);
+
         }
+        laserLine.positionCount = beamPoints.Count;
+        laserLine.SetPositions(beamPoints.ToArray());
     }
 
     float CalculateMaxDistance(int beamCount) {
@@ -111,20 +112,7 @@ public class Laser : MonoBehaviour
         return dist;
     }
 
-    void CompareBeams() {
-        // compare objectsHit to previousObjectsHit
-        //for(int i = 0; i < previousObjectsHit.Count; i++) {
-        //    if (i >= objectsHit.Count || objectsHit[i] != previousObjectsHit[i]) {
-        //        var dist = 0f; ;
-        //        for(int j = 0; j < i; j++) {
-        //            dist += beamDistances[j];
-        //        }
-        //        dist += previousBeamDistances[i];
-        //        currentMaxDistance = dist;
-        //        break;
-        //    }
-        //}
-        // if changed clamp currentMaxDistance
+    void SetPreviousData() {
         previousBeamDistances = beamDistances;
         previousObjectsHit = objectsHit;
     }
