@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour{
         enemyCount--;
         if(enemyCount < 1) {
             LevelComplete();
+            AudioFW.StopLoop("Laser");
         }
     }
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour{
         }
         var e = GameObject.FindObjectsOfType<Destructible>();
         enemyCount = e.Length;
+        print(enemyCount);
     }
 
     void HideLevel() {

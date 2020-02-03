@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistanceLimit: 200
-  extendSpeed: 40
+  extendSpeed: 75
   laserPower: 100
 --- !u!114 &4064120819799675431
 MonoBehaviour:
