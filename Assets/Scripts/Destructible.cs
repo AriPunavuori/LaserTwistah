@@ -10,7 +10,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     public bool Healable;
     bool isTakingDamage;
     public float HealingAmount; // per 1 second
-    bool levelCompleted;
+    bool enemyDead;
     bool audioTakesHitsIsOn;
     GameManager gm;
 
@@ -35,10 +35,10 @@ public class Destructible : MonoBehaviour, IDamageable {
         // If health goes too low we'll remove enemy.
         if (health <= MinHealth) {
             //audioVanishes.Play();
-            AudioFW.Play("TargetExplodes");
-            if(!levelCompleted) {
-                gm.LevelComplete();
-                levelCompleted = true;
+            //AudioFW.Play("TargetExplodes");
+            if(!enemyDead) {
+                gm.EnemyKilled();
+                enemyDead = true;
             }
 
             Destroy(gameObject, 0.5f);

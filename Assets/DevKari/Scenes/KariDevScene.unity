@@ -163,7 +163,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5bb8e4b476f85a94d8ae5fc82dce89e8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1043,7 +1043,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f76ec877f2862194fb336b0cc57c348d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1747,8 +1747,6 @@ MonoBehaviour:
   MaxHealth: 100
   Healable: 1
   HealingAmount: 10
-  audioVanishes: {fileID: 1849510593386648819}
-  audioTakesHits: {fileID: 9181473663119335914}
 --- !u!4 &4064120818276812822
 Transform:
   m_ObjectHideFlags: 0
