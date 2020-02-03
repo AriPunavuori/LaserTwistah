@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour{
+
     public List<GameObject> levels;
     int level = -1;
     UIManager um;
+
+    //For AudioFW test
+    Dictionary<KeyCode, string> bindings = new Dictionary<KeyCode, string>();
+
     void Start() {
         um = FindObjectOfType<UIManager>();
         SetLevel();
+
+        // For AudioFW test
+        bindings.Add(KeyCode.P, "TargetExplodes");
     }
 
     public void LevelComplete() {
@@ -51,4 +59,13 @@ public class GameManager : MonoBehaviour{
     void GameOver() {
         SceneManager.LoadScene(0);
     }
+
+    void Update() {
+        // Audio Manager test (AudioFW.cs)
+        foreach (var kc in bindings.Keys) {
+            if (Input.GetKeyDown(kc))
+                AudioFW.Play(bindings[kc]);
+        }
+    }
+
 }

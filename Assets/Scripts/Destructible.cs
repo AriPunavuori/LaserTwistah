@@ -18,9 +18,6 @@ public class Destructible : MonoBehaviour, IDamageable {
         gm = FindObjectOfType<GameManager>();
     }
 
-    public AudioSource audioVanishes;
-    public AudioSource audioTakesHits;
-
     public void DamageIt(float damageAmount) {
         //Debug.Log("You damaged it.");
         // Enemy get's some damage.
@@ -29,7 +26,7 @@ public class Destructible : MonoBehaviour, IDamageable {
         isEnemyDestroyed(Health);
         isTakingDamage = true;
         if(isTakingDamage && !audioTakesHitsIsOn) {
-            audioTakesHits.Play();
+            AudioFW.Play("TargetTakesHits");
             audioTakesHitsIsOn = true;
         }
     }
@@ -37,7 +34,8 @@ public class Destructible : MonoBehaviour, IDamageable {
     void isEnemyDestroyed(float health) {
         // If health goes too low we'll remove enemy.
         if (health <= MinHealth) {
-            audioVanishes.Play();
+            //audioVanishes.Play();
+            AudioFW.Play("TargetExplodes");
             if(!levelCompleted) {
                 gm.LevelComplete();
                 levelCompleted = true;
