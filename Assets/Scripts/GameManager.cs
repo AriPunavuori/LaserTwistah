@@ -72,8 +72,8 @@ public class GameManager : MonoBehaviour{
 
     void Update() {
         // Audio Manager test (AudioFW.cs)
-        foreach (var kc in bindings.Keys) {
-            if (Input.GetKeyDown(kc))
+        foreach(var kc in bindings.Keys) {
+            if(Input.GetKeyDown(kc))
                 AudioFW.Play(bindings[kc]);
         }
     }
