@@ -265,8 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71684bcdede0299428084510a41f57e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIText: {fileID: 1404919688}
-  UIText2: {fileID: 1815913054}
   circle: {fileID: 6154819055299034192, guid: b22612f36d8401e47b76440066cb373b, type: 3}
   touchRadius: 0.5
 --- !u!4 &476315118

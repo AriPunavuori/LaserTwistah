@@ -17,15 +17,15 @@ public class Destructible : MonoBehaviour, IDamageable {
         gm = FindObjectOfType<GameManager>();
     }
 
-    //public AudioSource audioVanishes;
-    //public AudioSource audioTakesHits;
+    public AudioSource audioVanishes;
+    public AudioSource audioTakesHits;
 
     public void DamageIt(float damageAmount) {
         //Debug.Log("You damaged it.");
         // Enemy get's some damage.
         Health -= damageAmount*Time.deltaTime;
         GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
-        //audioTakesHits.Play();
+        audioTakesHits.Play();
         isEnemyDestroyed(Health);
         isTakingDamage = true;
     }
@@ -33,7 +33,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     void isEnemyDestroyed(float health) {
         // If health goes too low we'll remove enemy.
         if (health <= MinHealth) {
-            //audioVanishes.Play();
+            audioVanishes.Play();
             if(!levelCompleted) {
                 gm.LevelComplete();
                 levelCompleted = true;
