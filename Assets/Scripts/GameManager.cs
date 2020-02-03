@@ -70,12 +70,12 @@ public class GameManager : MonoBehaviour{
         SceneManager.LoadScene(0);
     }
 
-    //void Update() {
-    //    // Audio Manager test (AudioFW.cs)
-    //    foreach (var kc in bindings.Keys) {
-    //        if (Input.GetKeyDown(kc))
-    //            AudioFW.Play(bindings[kc]);
-    //    }
-    //}
+    void Update() {
+        // Audio Manager test (AudioFW.cs)
+        foreach (var kc in bindings.Keys) {
+            if (Input.GetKeyDown(kc))
+                AudioFW.Play(bindings[kc]);
+        }
+    }
 
 }
