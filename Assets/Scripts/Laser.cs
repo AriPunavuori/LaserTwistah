@@ -10,6 +10,7 @@ public class Laser : MonoBehaviour
     Transform beamStart;
     LineRenderer laserLine;
     bool isDamaging;
+    bool isOn;
     List<float> beamDistances;
     List<float> previousBeamDistances;
     List<Vector3> beamPoints;
@@ -22,6 +23,7 @@ public class Laser : MonoBehaviour
         beamPoints = new List<Vector3>();
         beamStart = transform.Find("BeamStart");
         laserLine = GetComponent<LineRenderer>();
+        isOn = true;
         AudioFW.PlayLoop("Laser");
     }
 
@@ -47,52 +49,54 @@ public class Laser : MonoBehaviour
     }
 
     void ShootBeam(Vector2 origin, Vector2 dir, float maxDistance, int nBeamSegment) {
-        var hit = Physics2D.Raycast(origin, dir, maxDistance);
+        if(isOn) {
+            var hit = Physics2D.Raycast(origin, dir, maxDistance);
 
-        if(hit.collider == null) {
-            if (nBeamSegment < previousObjectsHit.Count) {
-                currentMaxDistance = CalculateMaxDistance(nBeamSegment);
-                maxDistance = previousBeamDistances[nBeamSegment];
+            if(hit.collider == null) {
+                if(nBeamSegment < previousObjectsHit.Count) {
+                    currentMaxDistance = CalculateMaxDistance(nBeamSegment);
+                    maxDistance = previousBeamDistances[nBeamSegment];
+                }
+                CreateBeamSegment(origin, origin + dir * maxDistance);
+                return;
             }
-            CreateBeamSegment(origin, origin + dir * maxDistance);
-            return;
-        }
-        // Check if starts inside object.
-        if(hit.distance <= 0.1f) {
-            return;
-        }
-
-        var go = hit.collider.gameObject;
-
-        if (nBeamSegment < previousObjectsHit.Count && go != previousObjectsHit[nBeamSegment]) {
-            var prevD = previousBeamDistances[nBeamSegment];
-            //maxDistance = previousBeamDistances[nBeamSegment];
-            if (prevD < hit.distance) {
-                currentMaxDistance = CalculateMaxDistance(nBeamSegment);
-                CreateBeamSegment(origin, origin + dir * prevD);
-            } else {
-                currentMaxDistance = CalculateMaxDistance(nBeamSegment)
-                    - previousBeamDistances[nBeamSegment]
-                    + hit.distance;
-                CreateBeamSegment(origin, origin + dir * hit.distance);
+            // Check if starts inside object.
+            if(hit.distance <= 0.1f) {
+                return;
             }
-            return;
-        }
 
-        CreateBeamSegment(origin, hit.point);
+            var go = hit.collider.gameObject;
 
-        objectsHit.Add(go);
-        beamDistances.Add(hit.distance);
+            if(nBeamSegment < previousObjectsHit.Count && go != previousObjectsHit[nBeamSegment]) {
+                var prevD = previousBeamDistances[nBeamSegment];
+                //maxDistance = previousBeamDistances[nBeamSegment];
+                if(prevD < hit.distance) {
+                    currentMaxDistance = CalculateMaxDistance(nBeamSegment);
+                    CreateBeamSegment(origin, origin + dir * prevD);
+                } else {
+                    currentMaxDistance = CalculateMaxDistance(nBeamSegment)
+                        - previousBeamDistances[nBeamSegment]
+                        + hit.distance;
+                    CreateBeamSegment(origin, origin + dir * hit.distance);
+                }
+                return;
+            }
 
-        if(go.tag == "Mirror") {
-            var newDir = Vector2.Reflect(dir, hit.normal);
-            ShootBeam(hit.point - dir * 0.001f, newDir, maxDistance - hit.distance, nBeamSegment + 1);
-        }
+            CreateBeamSegment(origin, hit.point);
 
-        IDamageable damageable = go.GetComponentInParent<IDamageable>();
-        if(damageable != null) {
-            damageable.DamageIt(laserPower);
-            isDamaging = true;
+            objectsHit.Add(go);
+            beamDistances.Add(hit.distance);
+
+            if(go.tag == "Mirror") {
+                var newDir = Vector2.Reflect(dir, hit.normal);
+                ShootBeam(hit.point - dir * 0.001f, newDir, maxDistance - hit.distance, nBeamSegment + 1);
+            }
+
+            IDamageable damageable = go.GetComponentInParent<IDamageable>();
+            if(damageable != null) {
+                damageable.DamageIt(laserPower);
+                isDamaging = true;
+            }
         }
     }
 
@@ -119,7 +123,10 @@ public class Laser : MonoBehaviour
         dist += previousBeamDistances[beamCount];
         return dist;
     }
-
+    public void TurnOff() {
+        isOn = false;
+        AudioFW.StopLoop("Laser");
+    }
     void SetPreviousData() {
         previousBeamDistances = beamDistances;
         previousObjectsHit = objectsHit;

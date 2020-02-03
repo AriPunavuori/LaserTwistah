@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour{
     int enemyCount;
     int level = -1;
     UIManager um;
+    Laser laser;
 
     //For AudioFW test
     Dictionary<KeyCode, string> bindings = new Dictionary<KeyCode, string>();
@@ -25,7 +26,6 @@ public class GameManager : MonoBehaviour{
         enemyCount--;
         if(enemyCount < 1) {
             LevelComplete();
-            AudioFW.StopLoop("Laser");
         }
     }
 
@@ -34,10 +34,11 @@ public class GameManager : MonoBehaviour{
             um.SetUIText("The Whole Game Completed");
             Invoke("GameOver", 5f);
             print("Game Over");
+            laser.TurnOff();
             return;
         }
         um.SetUIText("Level " + (level + 1) + " Complete");
-
+        laser.TurnOff();
         Invoke("SetLevel", 2f);
     }
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour{
             }
         }
         var e = GameObject.FindObjectsOfType<Destructible>();
+        laser = GameObject.FindObjectOfType<Laser>();
         enemyCount = e.Length;
         print(enemyCount);
     }

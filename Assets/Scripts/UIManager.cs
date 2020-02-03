@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour{
     Camera cam;
     TextMeshProUGUI UIText;
     public GameObject circle;
-    public float touchRadius = .5f;
+    public float touchRadius = 1f;
     float textTimer;
     float textTime = 3f;
     float speed = .25f;
