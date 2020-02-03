@@ -9,7 +9,7 @@ public class Laser : MonoBehaviour
     public float extendSpeed;
     Transform beamStart;
     LineRenderer laserLine;
-
+    bool isDamaging;
     List<float> beamDistances;
     List<float> previousBeamDistances;
     List<Vector3> beamPoints;
@@ -22,6 +22,7 @@ public class Laser : MonoBehaviour
         beamPoints = new List<Vector3>();
         beamStart = transform.Find("BeamStart");
         laserLine = GetComponent<LineRenderer>();
+        AudioFW.PlayLoop("Laser");
     }
 
     void Update() {
@@ -33,10 +34,16 @@ public class Laser : MonoBehaviour
     }
 
     void StartBeam() {
+        isDamaging = false;
         beamPoints.Clear();
         objectsHit = new List<GameObject>();
         beamDistances = new List<float>();
         ShootBeam(beamStart.position, beamStart.up, currentMaxDistance, 0);
+        if(isDamaging) {
+            AudioFW.AdjustPitch("Laser", 2.5f);
+        } else {
+            AudioFW.AdjustPitch("Laser", 0.5f);
+        }
     }
 
     void ShootBeam(Vector2 origin, Vector2 dir, float maxDistance, int nBeamSegment) {
@@ -85,6 +92,7 @@ public class Laser : MonoBehaviour
         IDamageable damageable = go.GetComponentInParent<IDamageable>();
         if(damageable != null) {
             damageable.DamageIt(laserPower);
+            isDamaging = true;
         }
     }
 

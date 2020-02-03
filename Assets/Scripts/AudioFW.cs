@@ -9,11 +9,20 @@ public class AudioFW : MonoBehaviour {
     // where id is the name of the sound effect object.
 
     Dictionary<string, AudioSource> sfx = new Dictionary<string, AudioSource>();
-
+    Dictionary<string, AudioSource> loops = new Dictionary<string, AudioSource>();
     public static void Play(string id) {
         instance.PlayImpl(id);
     }
+    public static void PlayLoop(string id) {
+        instance.PlayLoopImpl(id);
+    }
+    public static void StopLoop(string id) {
+        instance.StopLoopImpl(id);
+    }
 
+    public static void AdjustPitch(string id, float pitch) {
+        instance.AdjustPitchImpl(id, pitch);
+    }
     void PlayImpl(string id) {
         if (!sfx.ContainsKey(id)) {
             Debug.LogError("No sound with ID " + id);
@@ -21,7 +30,30 @@ public class AudioFW : MonoBehaviour {
         }
         sfx[id].PlayOneShot(sfx[id].clip);
     }
-
+    void PlayLoopImpl(string id) {
+        if(!loops.ContainsKey(id)) {
+            Debug.LogError("No sound with ID " + id);
+            return;
+        }
+        if(!loops[id].isPlaying) {
+            loops[id].Play();
+        }
+    }
+    void StopLoopImpl(string id) {
+        if(!loops.ContainsKey(id)) {
+            Debug.LogError("No sound with ID " + id);
+            return;
+        }
+        loops[id].Stop();
+    }
+    void AdjustPitchImpl(string id, float pitch) {
+        if(!loops.ContainsKey(id)) {
+            Debug.LogError("No sound with ID " + id);
+            return;
+        }
+        loops[id].pitch = Mathf.Clamp(pitch, -3f, 3f);
+        //print("Pitch adjusted");
+    }
     static public AudioFW instance {
         get {
             if (!_instance) {
@@ -41,6 +73,10 @@ public class AudioFW : MonoBehaviour {
         var audioSources = transform.Find("SFX").GetComponentsInChildren<AudioSource>();
         foreach (var a in audioSources) {
             sfx.Add(a.name, a);
+        }
+        var audioSources2 = transform.Find("Loops").GetComponentsInChildren<AudioSource>();
+        foreach(var a in audioSources2) {
+            loops.Add(a.name, a);
         }
     }
 
