@@ -25,23 +25,19 @@ public class Destructible : MonoBehaviour, IDamageable {
         GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
         isEnemyDestroyed(Health);
         isTakingDamage = true;
-        if(isTakingDamage && !audioTakesHitsIsOn) {
-            AudioFW.Play("TargetTakesHits");
-            audioTakesHitsIsOn = true;
-        }
     }
 
     void isEnemyDestroyed(float health) {
         // If health goes too low we'll remove enemy.
         if (health <= MinHealth) {
             //audioVanishes.Play();
-            //AudioFW.Play("TargetExplodes");
+            AudioFW.Play("TargetExplodes");
             if(!enemyDead) {
                 gm.EnemyKilled();
                 enemyDead = true;
             }
 
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
         }
         //if (health >= enemyMaxHealth) {
         //    health = enemyMaxHealth;
