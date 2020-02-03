@@ -22,7 +22,7 @@ public class Destructible : MonoBehaviour, IDamageable {
         //Debug.Log("You damaged it.");
         // Enemy get's some damage.
         Health -= damageAmount*Time.deltaTime;
-        GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
+        GetComponent<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
         isEnemyDestroyed(Health);
         isTakingDamage = true;
     }
