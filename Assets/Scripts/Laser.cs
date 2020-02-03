@@ -92,6 +92,7 @@ public class Laser : MonoBehaviour
         IDamageable damageable = go.GetComponentInParent<IDamageable>();
         if(damageable != null) {
             damageable.DamageIt(laserPower);
+            isDamaging = true;
         }
     }
 
