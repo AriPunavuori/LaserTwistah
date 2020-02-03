@@ -603,7 +603,7 @@ PrefabInstance:
     - target: {fileID: 9108330663325397016, guid: e20016643df76f94492d70bec7241e76,
         type: 3}
       propertyPath: levels.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e20016643df76f94492d70bec7241e76, type: 3}

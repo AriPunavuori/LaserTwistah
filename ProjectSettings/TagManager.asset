@@ -15,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - Veggies
-  - Candies
+  - Controls
+  - Props
   - Obstacles
   - BackGround
   - 
@@ -48,4 +48,7 @@ TagManager:
     locked: 0
   - name: Laser
     uniqueID: 881872273
+    locked: 0
+  - name: Front
+    uniqueID: 3838143845
     locked: 0

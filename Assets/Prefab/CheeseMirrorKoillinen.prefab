@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2909088846344994712}
   - component: {fileID: 2909088846344994713}
   - component: {fileID: 2909088846344994714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CheeseMirrorKoillinen
   m_TagString: Mirror
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2909088847421494217}
   - component: {fileID: 2909088847421494216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,8 +155,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -456823451
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7418b6a3aff65a548a584c963e6789be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
