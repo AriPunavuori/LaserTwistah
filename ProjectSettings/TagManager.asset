@@ -18,7 +18,7 @@ TagManager:
   - Veggies
   - Candies
   - Obstacles
-  - 
+  - BackGround
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2000347233
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
