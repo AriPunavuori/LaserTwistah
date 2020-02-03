@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour{
 
     public List<GameObject> levels;
+    int enemyCount;
     int level = -1;
     UIManager um;
 
@@ -18,6 +19,13 @@ public class GameManager : MonoBehaviour{
 
         // For AudioFW test
         bindings.Add(KeyCode.P, "TargetExplodes");
+    }
+
+    public void EnemyKilled() {
+        enemyCount--;
+        if(enemyCount < 1) {
+            LevelComplete();
+        }
     }
 
     public void LevelComplete() {
@@ -47,6 +55,8 @@ public class GameManager : MonoBehaviour{
                 levels[i].gameObject.SetActive(false);
             }
         }
+        var e = GameObject.FindObjectsOfType<Destructible>();
+        enemyCount = e.Length;
     }
 
     void HideLevel() {
@@ -60,12 +70,12 @@ public class GameManager : MonoBehaviour{
         SceneManager.LoadScene(0);
     }
 
-    void Update() {
-        // Audio Manager test (AudioFW.cs)
-        foreach (var kc in bindings.Keys) {
-            if (Input.GetKeyDown(kc))
-                AudioFW.Play(bindings[kc]);
-        }
-    }
+    //void Update() {
+    //    // Audio Manager test (AudioFW.cs)
+    //    foreach (var kc in bindings.Keys) {
+    //        if (Input.GetKeyDown(kc))
+    //            AudioFW.Play(bindings[kc]);
+    //    }
+    //}
 
 }
