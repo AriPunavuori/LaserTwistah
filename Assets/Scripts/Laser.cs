@@ -24,6 +24,9 @@ public class Laser : MonoBehaviour
         beamStart = transform.Find("BeamStart");
         laserLine = GetComponent<LineRenderer>();
         isOn = true;
+    }
+
+    void Start() {
         AudioFW.PlayLoop("Laser");
     }
 
@@ -43,9 +46,16 @@ public class Laser : MonoBehaviour
         ShootBeam(beamStart.position, beamStart.up, currentMaxDistance, 0);
         if(isDamaging) {
             AudioFW.AdjustPitch("Laser", 2.5f);
+            if (objectsHit[objectsHit.Count - 1].GetComponent<Destructible>() != null) {
+                if (objectsHit[objectsHit.Count - 1].GetComponent<Destructible>().isScreamerOnly) {
+                    AudioFW.PlayLoop("Screamer");
+                }
+            }
         } else {
             AudioFW.AdjustPitch("Laser", 0.5f);
+            AudioFW.StopLoop("Screamer");
         }
+
     }
 
     void ShootBeam(Vector2 origin, Vector2 dir, float maxDistance, int nBeamSegment) {
@@ -126,6 +136,8 @@ public class Laser : MonoBehaviour
     public void TurnOff() {
         isOn = false;
         AudioFW.StopLoop("Laser");
+        // If target isScreamerOnly
+        AudioFW.StopLoop("Screamer");
     }
     void SetPreviousData() {
         previousBeamDistances = beamDistances;

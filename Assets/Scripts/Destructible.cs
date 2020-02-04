@@ -12,6 +12,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     public float HealingAmount; // per 1 second
     bool enemyDead;
     bool audioTakesHitsIsOn;
+    public bool isScreamerOnly;
     GameManager gm;
 
     private void Start() {
@@ -23,7 +24,9 @@ public class Destructible : MonoBehaviour, IDamageable {
         // Enemy get's some damage.
         Health -= damageAmount*Time.deltaTime;
         GetComponent<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
-        isEnemyDestroyed(Health);
+        if (!isScreamerOnly) {
+            isEnemyDestroyed(Health);
+        }
         isTakingDamage = true;
     }
 
@@ -50,7 +53,7 @@ public class Destructible : MonoBehaviour, IDamageable {
         if (Healable  && !isTakingDamage) {
             if (Health < MaxHealth) {
                 Health += (HealingAmount * Time.deltaTime);
-                GetComponentInChildren<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
+                GetComponent<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
             }
         }
 
