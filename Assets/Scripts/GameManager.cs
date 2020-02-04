@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour{
 
     public List<GameObject> levels;
     int enemyCount;
-    int level = -1;
+    int level = 0;
     UIManager um;
     Laser laser;
 
@@ -29,22 +29,34 @@ public class GameManager : MonoBehaviour{
         }
     }
 
+    public void Friendykilled() {
+        um.SetUIText("Level " + (level + 1) + " Failed", 2f);
+        laser.TurnOff();
+        Invoke("LevelFailed", 2f);
+    }
+
     public void LevelComplete() {
         if(level > levels.Count - 2) {
-            um.SetUIText("The Whole Game Completed");
+            um.SetUIText("Congratulations!\nGame Completed", 10f);
             Invoke("GameOver", 5f);
             print("Game Over");
             laser.TurnOff();
             return;
         }
-        um.SetUIText("Level " + (level + 1) + " Complete");
+        um.SetUIText("Level " + (level + 1) + " Complete", 2f);
         laser.TurnOff();
-        Invoke("SetLevel", 2f);
+        Invoke("NextLevel", 2f);
     }
 
-    public void SetLevel() {
+    void NextLevel() {
         level++;
-        um.SetUIText("Level " + (level + 1));
+        SetLevel();
+    }
+    void LevelFailed() {
+        SetLevel();
+    }
+    public void SetLevel() {
+        um.SetUIText("Level " + (level + 1), 3f);
         HideLevel();
         Invoke("DisplayLevel", 2f);
     }
@@ -59,7 +71,13 @@ public class GameManager : MonoBehaviour{
         }
         var e = GameObject.FindObjectsOfType<Destructible>();
         laser = GameObject.FindObjectOfType<Laser>();
-        enemyCount = e.Length;
+        laser.TurnOn();
+        enemyCount = 0;
+        foreach(var d in e) {
+            if(!d.isFriendly)
+                enemyCount++;
+        }
+        //enemyCount = e.Length;
         print(enemyCount);
     }
 
@@ -69,7 +87,6 @@ public class GameManager : MonoBehaviour{
         }
     }
 
-    
     void GameOver() {
         SceneManager.LoadScene(0);
     }
@@ -81,5 +98,4 @@ public class GameManager : MonoBehaviour{
                 AudioFW.Play(bindings[kc]);
         }
     }
-
 }

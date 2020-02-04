@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  MinHealth: 0
+  MinHealth: 1
   MaxHealth: 100
   Healable: 1
-  HealingAmount: 20
+  HealingAmount: 100
   isScreamerOnly: 1
 --- !u!212 &1494579839169813549
 SpriteRenderer:

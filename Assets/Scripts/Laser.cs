@@ -47,7 +47,7 @@ public class Laser : MonoBehaviour
         if(isDamaging) {
             AudioFW.AdjustPitch("Laser", 2.5f);
             if (objectsHit[objectsHit.Count - 1].GetComponent<Destructible>() != null) {
-                if (objectsHit[objectsHit.Count - 1].GetComponent<Destructible>().isScreamerOnly) {
+                if (objectsHit[objectsHit.Count - 1].GetComponent<Destructible>().isFriendly) {
                     AudioFW.PlayLoop("Screamer");
                 }
             }
@@ -138,6 +138,10 @@ public class Laser : MonoBehaviour
         AudioFW.StopLoop("Laser");
         // If target isScreamerOnly
         AudioFW.StopLoop("Screamer");
+    }
+    public void TurnOn() {
+        isOn = true;
+        AudioFW.PlayLoop("Laser");
     }
     void SetPreviousData() {
         previousBeamDistances = beamDistances;

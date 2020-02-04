@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8a62351b7beb66c4ab9f5965160d4abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -418,7 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  MinHealth: 0
+  MinHealth: 1
   MaxHealth: 100
-  Healable: 0
-  HealingAmount: 0
+  Healable: 1
+  HealingAmount: 100
+  isScreamerOnly: 1

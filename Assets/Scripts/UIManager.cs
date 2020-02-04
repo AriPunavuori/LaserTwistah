@@ -13,18 +13,18 @@ public class UIManager : MonoBehaviour{
     float speed = .25f;
     Dictionary<int, Rigidbody2D> drags = new Dictionary<int, Rigidbody2D>();
     Dictionary<int, Vector2[]> touchVel = new Dictionary<int, Vector2[]>();
-
+    LayerMask layerMask;
     private void Awake() {
         cam = Camera.main;
         Application.targetFrameRate = 60;
         UIText = GameObject.Find("UIText").GetComponent<TextMeshProUGUI>();
+        layerMask = LayerMask.GetMask(new string[1]{"Controls"});
     }
 
     void Update() {
         textTimer -= Time.deltaTime;
         if(textTimer < 0) {
-            SetUIText("");
-            textTimer = Mathf.Infinity;
+            SetUIText("", Mathf.Infinity);
         }
 
         // Loop through touches
@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour{
 
             // Check if object is draggable, add to dictionary and make array for velEst
             if (t.phase == TouchPhase.Began) {
-                var col = Physics2D.OverlapCircleAll(s, touchRadius);
+                var col = Physics2D.OverlapCircleAll(s, touchRadius, layerMask);
                 foreach(var c in col) {
                     if(c.GetComponent<Interaction>().IsDraggable()) {
                         drags.Add(t.fingerId, c.GetComponent<Rigidbody2D>());
@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour{
             else if(t.phase == TouchPhase.Ended) {
                 var ar = touchVel[t.fingerId];
                 var velEst = (ar[0] + ar[1] + ar[2]) / 3;
+                drags[t.fingerId].isKinematic = false;
                 drags[t.fingerId].velocity = velEst * speed;
                 touchVel.Remove(t.fingerId);
                 drags.Remove(t.fingerId);
@@ -65,8 +66,8 @@ public class UIManager : MonoBehaviour{
         }
     }
 
-    public void SetUIText(string t) {
-        UIText.text = t;
+    public void SetUIText(string s, float t) {
+        UIText.text = s;
         textTimer = textTime;
     }
 }

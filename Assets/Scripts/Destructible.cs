@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : MonoBehaviour, IDamageable {
+public class Destructible : MonoBehaviour, IDamageable
+{
 
     public float Health = 100f;
     public float MinHealth = 0f;
@@ -10,9 +11,7 @@ public class Destructible : MonoBehaviour, IDamageable {
     public bool Healable;
     bool isTakingDamage;
     public float HealingAmount; // per 1 second
-    bool enemyDead;
-    bool audioTakesHitsIsOn;
-    public bool isScreamerOnly;
+    public bool isFriendly;
     GameManager gm;
 
     private void Start() {
@@ -22,25 +21,25 @@ public class Destructible : MonoBehaviour, IDamageable {
     public void DamageIt(float damageAmount) {
         //Debug.Log("You damaged it.");
         // Enemy get's some damage.
-        Health -= damageAmount*Time.deltaTime;
+        Health -= damageAmount * Time.deltaTime;
         GetComponent<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
-        if (!isScreamerOnly) {
-            isEnemyDestroyed(Health);
-        }
+        isDestroyed(Health);
         isTakingDamage = true;
     }
 
-    void isEnemyDestroyed(float health) {
+    void isDestroyed(float health) {
         // If health goes too low we'll remove enemy.
-        if (health <= MinHealth) {
+        if(health <= MinHealth) {
             //audioVanishes.Play();
             AudioFW.Play("TargetExplodes");
-            if(!enemyDead) {
-                gm.EnemyKilled();
-                enemyDead = true;
-            }
 
-            Destroy(gameObject);
+                if(isFriendly) {
+                    gm.Friendykilled();
+                    print("Killed Freindly");
+                } else {
+                    gm.EnemyKilled();
+                    Destroy(gameObject);
+                }
         }
         //if (health >= enemyMaxHealth) {
         //    health = enemyMaxHealth;
@@ -50,8 +49,8 @@ public class Destructible : MonoBehaviour, IDamageable {
     void Update() {
         //Debug.Log("Trying to heal...");
         // We'll try to heal target a bit in every frame.
-        if (Healable  && !isTakingDamage) {
-            if (Health < MaxHealth) {
+        if(Healable && !isTakingDamage) {
+            if(Health < MaxHealth) {
                 Health += (HealingAmount * Time.deltaTime);
                 GetComponent<SpriteRenderer>().material.SetFloat("_FlashAmount", (MaxHealth - Health) / MaxHealth);
             }
