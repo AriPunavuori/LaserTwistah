@@ -140,6 +140,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 147730996, guid: 6c1a3d3912d8a1f4ca2b11a26df2a2d9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70d19785d29f4e044b6e86af8a7c398f, type: 3}
     - target: {fileID: 4927019598467455636, guid: 6c1a3d3912d8a1f4ca2b11a26df2a2d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1295,7 +1299,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 108015520, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 158236296, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 174504570, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466624530, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528461954, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1807044003, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086402056, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444341238250709219, guid: cb308416122ffaf48b676b22d807cd4f,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1359,15 +1392,126 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1333394323385163739, guid: cb308416122ffaf48b676b22d807cd4f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3016a120ae6a01f469f1b03a09490fb6, type: 2}
-    - target: {fileID: 1717036840182777104, guid: cb308416122ffaf48b676b22d807cd4f,
+    - target: {fileID: 444341238960318727, guid: cb308416122ffaf48b676b22d807cd4f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1573204491381999065, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb308416122ffaf48b676b22d807cd4f, type: 3}
+--- !u!1 &7367974202856473578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 879386462, guid: cb308416122ffaf48b676b22d807cd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367974202856473577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7367974202856473579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1211166959, guid: cb308416122ffaf48b676b22d807cd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367974202856473577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7367974202856473580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1865753924, guid: cb308416122ffaf48b676b22d807cd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367974202856473577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7367974202856473581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7367974204529249355, guid: cb308416122ffaf48b676b22d807cd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367974202856473577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7367974202856473582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1528461954, guid: cb308416122ffaf48b676b22d807cd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367974202856473577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7367974202856473583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367974202856473578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e6fb4ef92640c4eb1f933168a0d8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  MinHealth: 0
+  MaxHealth: 100
+  Healable: 0
+  HealingAmount: 0
+--- !u!114 &7367974202856473584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367974202856473579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e6fb4ef92640c4eb1f933168a0d8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  MinHealth: 0
+  MaxHealth: 100
+  Healable: 0
+  HealingAmount: 0
+--- !u!114 &7367974202856473585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367974202856473580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e6fb4ef92640c4eb1f933168a0d8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  MinHealth: 0
+  MaxHealth: 100
+  Healable: 0
+  HealingAmount: 0
+--- !u!114 &7367974202856473586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367974202856473581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e6fb4ef92640c4eb1f933168a0d8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  MinHealth: 0
+  MaxHealth: 100
+  Healable: 0
+  HealingAmount: 0
+--- !u!114 &7367974202856473587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367974202856473582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e6fb4ef92640c4eb1f933168a0d8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  MinHealth: 0
+  MaxHealth: 100
+  Healable: 0
+  HealingAmount: 0
